@@ -54,7 +54,7 @@ resource "aws_instance" "my_server" {
     Name = "my ec2"
   }
 }
-[root@ip-172-31-95-63 ec2-user]# cat /home/ec2-user/main.tf
+#[root@ip-172-31-95-63 ec2-user] #cat /home/ec2-user/main.tf
 # Configure the AWS Provider
 provider "aws" {
   region = "us-east-1" # Set AWS region to US East 1 (N. Virginia)
