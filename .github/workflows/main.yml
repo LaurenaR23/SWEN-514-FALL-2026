@@ -45,6 +45,10 @@ jobs:
       - name: Terraform Init
         run: terraform init
 
+      # Show resources tracked by Terraform
+      - name: Terraform State List
+        run: terraform state list
+
       # Show the execution plan when applying
       - name: Terraform Plan
         if: ${{ github.event.inputs.action == 'Terraform_apply' }}
