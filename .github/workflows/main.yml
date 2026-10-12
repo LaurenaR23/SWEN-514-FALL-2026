@@ -45,6 +45,14 @@ jobs:
       - name: Terraform Init
         run: terraform init
 
+      # Temporarily import existing AWS resources into Terraform state
+      - name: Import Existing Resources
+        if: ${{ github.event.inputs.action == 'Terraform_destroy' }}
+        run: |
+          terraform import aws_security_group.allow_http_ssh sg-0ee31846e5008a117
+          terraform import aws_instance.my_server i-0a256b4f2bac1836c
+
+
       # Show resources tracked by Terraform
       - name: Terraform State List
         run: terraform state list
